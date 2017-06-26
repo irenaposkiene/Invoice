@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Forma Prideti naujas fakturas</title>
+    </h:head>
+    
+    <h:body>
+        <h:form id="naujosFakt">
+            <h3>Prideti naujas fakturas</h3>
+            <p:panelGrid columns="3">
+                
+                <h:outputText value="Date:"/>
+                <p:inputText id="faktnumber" value="#{newInvoiceBean.invoiceDate}" required="true"/>
+                <p:message for="faktnumber"/>
+                
+                <h:outputText value="Number:"/>
+                <p:inputText id="faktnumber" value="#{newInvoiceBean.invoiceNumber}" required="true"/>
+                <p:message for="faktnumber"/>
+                
+                
+                <h:outputText value="Company:"/>
+                <p:inputText id="faktimone" value="#{newInvoiceBean.invoiceCompany}" required="true"/>
+                <p:message for="faktimone"/>
+                
+                <h:outputText value="Klientas: " />
+                <p:inputText id="faktklientas" value="#{newInvoiceBean.invoiceClient}" required="true" />
+                <p:message for="faktklientas" />
+           </p:panelGrid>
+           <p:commandButton action="#{newInvoiceBean.save()}" value="Add" ajax="none"/>
+        </h:form>
+    </h:body>
+</html>

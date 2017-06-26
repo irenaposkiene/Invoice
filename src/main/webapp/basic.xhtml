@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    
+    <h:head>
+        <title>Main</title>
+        <h:outputStylesheet name="styles.css"/>
+    </h:head>
+
+		
+    <h:body>
+        <h:form id="tableActionForm">
+            <h:dataTable value="#{invoiceListBean.invoiceList}" var="invoice">
+                <h:column>
+                    <f:facet name="header">
+                        Fakturos data
+                    </f:facet>
+                    <h:outputText value="#{invoice.date}"/>
+                </h:column>
+                  <h:column>
+                    <f:facet name="header">
+                        Fakturos nr
+                    </f:facet>
+                    <h:outputText value="#{invoice.number}"/>
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        Fakturos imone
+                    </f:facet>
+                    <h:outputText value="#{invoice.company}"/>
+                </h:column>
+                      <h:column>
+                    <f:facet name="header">
+                        Fakturos klientas
+                    </f:facet>
+                    <h:outputText value="#{invoice.client}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">
+                        Actions
+                    </f:facet>
+                    <h:commandLink actionListener="#{invoiceListBean.removeInvoice(invoice)}" value="Delete"/>
+              
+              
+                </h:column>
+            </h:dataTable>
+        </h:form>
+
+        <h:form id="actionForm">
+            <h:commandButton id="addNewInvoiceBtn" action="addNewInvoice" value="Add New Invoice"/>
+        </h:form>
+
+    </h:body>
+</html>
